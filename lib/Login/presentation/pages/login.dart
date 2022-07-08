@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mool_app/CreateAccount/presentation/pages/signup.dart';
 import 'package:mool_app/Login/presentation/globals/textfieldcontrollers.dart';
 import 'package:mool_app/Login/presentation/widgets/textfield.dart';
 import 'package:mool_app/Login/presentation/widgets/button.dart';
+import 'package:mool_app/PunchInScreen/presentation/pages/punchIn.dart';
 
 class Login extends StatelessWidget {
   @override
@@ -58,6 +60,10 @@ class Login extends StatelessWidget {
                 "LOGIN",
                 () {
                   print("Login");
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => PunchIn()),
+                  );
                 },
               ),
               const SizedBox(
@@ -69,7 +75,7 @@ class Login extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const <Widget>[
                     Text(
-                      'Cant Login?',
+                      'Cant Login? ',
                       style: TextStyle(
                         fontFamily: 'Gilroy',
                         fontSize: 16,
@@ -87,6 +93,47 @@ class Login extends StatelessWidget {
                           height: 1,
                           fontWeight: FontWeight.w600),
                       // textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+              // const SizedBox(
+              //   height: 8,
+              // ),
+              // Forgot password
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Text(
+                      'Dont\'t have an account? ',
+                      style: TextStyle(
+                        fontFamily: 'Gilroy',
+                        fontSize: 16,
+                        color: Color.fromRGBO(177, 177, 177, 1),
+                        height: 1,
+                      ),
+                      //textAlign: TextAlign.center,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        print('GO to sign up.');
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignUp()),
+                        );
+                      },
+                      child: const Text(
+                        'SignUp',
+                        style: TextStyle(
+                          fontFamily: 'Gilroy',
+                          fontSize: 16,
+                          color: Color(0xff405cd2),
+                          height: 1,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        // textAlign: TextAlign.center,
+                      ),
                     ),
                   ],
                 ),
